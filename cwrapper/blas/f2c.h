@@ -3,7 +3,11 @@
 /**  barf  [ba:rf]  2.  "He suggested using FORTRAN, and everybody barfed."
 
 	- From The Shogakukan DICTIONARY OF NEW ENGLISH (Second edition) */
-
+/*
+	modifs by Tibor Stanko (May 2017)
+		1. rename 'real' to 'rreal'
+		2. '#undef abs' at the end (otherwise conflict with <complex>)
+*/
 #ifndef F2C_INCLUDE
 #define F2C_INCLUDE
 
@@ -11,9 +15,9 @@ typedef int integer;
 typedef unsigned long int uinteger;
 typedef char *address;
 typedef short int shortint;
-typedef float real;
+typedef float rreal;
 typedef double doublereal;
-typedef struct { real r, i; } complex;
+typedef struct { rreal r, i; } complex;
 typedef struct { doublereal r, i; } doublecomplex;
 typedef long int logical;
 typedef short int shortlogical;
@@ -129,7 +133,7 @@ union Multitype {	/* for multiple entry points */
 	shortint h;
 	integer i;
 	/* longint j; */
-	real r;
+	rreal r;
 	doublereal d;
 	complex c;
 	doublecomplex z;
@@ -171,7 +175,7 @@ typedef struct Namelist Namelist;
 typedef int /* Unknown procedure type */ (*U_fp)(...);
 typedef shortint (*J_fp)(...);
 typedef integer (*I_fp)(...);
-typedef real (*R_fp)(...);
+typedef rreal (*R_fp)(...);
 typedef doublereal (*D_fp)(...), (*E_fp)(...);
 typedef /* Complex */ VOID (*C_fp)(...);
 typedef /* Double Complex */ VOID (*Z_fp)(...);
@@ -183,7 +187,7 @@ typedef /* Subroutine */ int (*S_fp)(...);
 typedef int /* Unknown procedure type */ (*U_fp)();
 typedef shortint (*J_fp)();
 typedef integer (*I_fp)();
-typedef real (*R_fp)();
+typedef rreal (*R_fp)();
 typedef doublereal (*D_fp)(), (*E_fp)();
 typedef /* Complex */ VOID (*C_fp)();
 typedef /* Double Complex */ VOID (*Z_fp)();
@@ -221,3 +225,5 @@ typedef doublereal E_f;	/* real function with -R not specified */
 #undef vax
 #endif
 #endif
+
+#undef abs
