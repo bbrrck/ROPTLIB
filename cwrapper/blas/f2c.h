@@ -2,9 +2,17 @@
 
 /**  barf  [ba:rf]  2.  "He suggested using FORTRAN, and everybody barfed."
 
+<<<<<<< HEAD
 	- From The Shogakukan DICTIONARY OF NEW ENGLISH (Second edition) */
 /*
 	modifs by Tibor Stanko (May 2017)
+=======
+	- From The Shogakukan DICTIONARY OF NEW ENGLISH (Second edition)
+
+	(2017)
+	Modifications by Tibor Stanko
+	to make ROPTLIB work with Eigen
+>>>>>>> 9a165dc88c9ae05acbb65f8474d34eb123b21252
 		1. rename 'real' to 'rreal'
 		2. '#undef abs' at the end (otherwise conflict with <complex>)
 */
